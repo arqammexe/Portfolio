@@ -3,6 +3,22 @@ AOS.init({
     duration: 1000,
     once: true,
 });
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.nav-menu');
+
+mobileMenu.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close mobile menu when a nav link is clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
 
 document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
